@@ -1,8 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
 class Square extends React.Component {
     render() {
         return (
-            <button className="square" >
-                {/*TODO*/}
+            //display value from Board
+            <button className="square">  
+                {this.props.value}
             </button>
         );
     }
@@ -10,7 +15,8 @@ class Square extends React.Component {
 
 class Board extends React.Component {
     renderSquare(i) {
-        return <Square />;
+        //pass a prop called 'value' to the Square
+        return <Square value={i}/>;
     }
 
     render() {

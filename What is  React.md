@@ -28,7 +28,7 @@ Starting from React.Component subclasses with an example:
 JSX comes with full power of JavaScript. Custom React components can also be rendered.
 
 ## Inspecting starter code
-Starter code is recorded in [src/index.js](). 
+Starter code for tic-tac-toe game is recorded in [src/index.js](https://github.com/slclei/LearnReact/tree/master/src). 
 
 
 
