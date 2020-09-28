@@ -30,5 +30,19 @@ JSX comes with full power of JavaScript. Custom React components can also be ren
 ## Inspecting starter code
 Starter code for tic-tac-toe game is recorded in [src/index.js](https://github.com/slclei/LearnReact/tree/master/src). 
 
+Buid local host for react with [npm start](https://www.w3schools.com/react/default.asp). 
+
+Code is stored in [my-react-app-name]() with my own commone during study. Some key points are listed here.
+
+## Immutability
+Data can be changed with mutation (directly), or without mutation (replace data with a new desired copy).
+
+Reasons: 1 complex features become simple. Previous versions of data could be reused.
+
+2 detecting changes. 
+
+3 based on 2, it is easy to determing when to re-render in react. Build pure components.
+
+
 
 
