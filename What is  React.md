@@ -43,6 +43,6 @@ Reasons: 1 complex features become simple. Previous versions of data could be re
 
 3 based on 2, it is easy to determing when to re-render in react. Build pure components.
 
-
+Lift state up: use parent component to store array of child component state, like array of squares in Board, and history array of boards in Game.
 
 
