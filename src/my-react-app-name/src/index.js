@@ -113,6 +113,8 @@ class Game extends React.Component {
         history: [{
           squares: Array(9).fill(null),
         }],
+        //stepNumber for current step
+        stepNumber:0,
         xIsNext:true,
       }
     }
@@ -121,7 +123,8 @@ class Game extends React.Component {
       //get old version of squares from state
       //slice() is used here to make a copy of array, instead of modified array directly
       //get most recent version square
-      const history=this.state.history;
+      //with go back function, slice is added to drop all 'future' steps after chosen step
+      const history=this.state.history.slice(0, this.state.stepNumber+1);
       const current=history[history.length-1];
       const squares=current.squares.slice();
       //early return if winner appears or it is already filled
@@ -136,15 +139,26 @@ class Game extends React.Component {
         history:history.concat([{
           squares:squares,
         }]),
+        //update stepNumber
+        stepNumber: history.length,
       //flip xIsNext on every click
         xIsNext: !this.state.xIsNext});
+    }
+
+    jumpTo(step){
+      this.setState({
+        stepNumber: step,
+        xIsNext:(step%2)===0,
+      });
     }
 
     render() {
       //get history props
       const history=this.state.history;
+      //render current step
+      const current = history[this.state.stepNumber];
       //get most recent history version
-      const current = history[history.length-1];
+      //const current = history[history.length-1];
       //calculate winner
       const winner=calculateWinner(current.squares);
 
@@ -154,7 +168,7 @@ class Game extends React.Component {
           'Got to move #' + move:
           'Got to game start';
         return (
-          <li>
+          <li key={move}>
             <button onClick={() => this.jumpTo(move)}>{desc}</button>
           </li>
         );
